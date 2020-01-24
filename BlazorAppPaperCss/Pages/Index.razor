@@ -1,0 +1,48 @@
+﻿@page "/"
+@inject NavigationManager navMgr
+@inject PrintSetting  prtSetting
+
+<h1>Blazor Print Using Paper.css</h1>
+
+<h3>Size:@prtSetting.PageSize,landscape:@prtSetting.IsLandscape</h3>
+
+@foreach (var size in sizes)
+{
+    <button class="btn btn-primary" @onclick="@(_ => {prtSetting.PageSize = size;prtSetting.IsLandscape = "false"; })">@size</button>
+    <button class="btn btn-primary" @onclick="@(_ => {prtSetting.PageSize = size;prtSetting.IsLandscape = "true"; })">@size landscape</button>
+}
+
+<h3>Padding:@prtSetting.Padding</h3>
+
+@foreach (var padding in paddings)
+{
+    <button class="btn btn-primary" @onclick="@(_ => prtSetting.Padding = padding)">@padding</button>
+}
+
+<h3>Multiples:@prtSetting.Multiple</h3>
+@foreach (var multiple in multiples)
+{
+    <button class="btn btn-primary" @onclick="@( _ => prtSetting.Multiple = multiple)">@multiple</button>
+}
+
+<h3>Auto Print:@prtSetting.AutoPrint</h3>
+<button class="btn btn-primary" @onclick="@( _ => prtSetting.AutoPrint="Yes")">Yes</button>
+<button class="btn btn-primary" @onclick="@( _ => prtSetting.AutoPrint="No")">No</button>
+
+<br /><br />
+<button class="btn btn-primary btn-lg" @onclick="@OnPrint">Print</button>
+
+@code{
+
+    string[] sizes = new[] { "A3", "A4", "A5", "letter", "legal" };
+
+    string[] paddings = new[] { "padding-10mm", "padding-15mm", "padding-20mm", "padding-25mm" };
+
+    string[] multiples = new[] { "1", "2", "3", "4", "5" };
+
+    void OnPrint()
+    {
+        navMgr.NavigateTo("/print");
+    }
+
+}

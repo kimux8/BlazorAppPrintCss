@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>BlazorAppPaperCss</title>
+    <base href="/" />
+    <link href="css/bootstrap/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/site.css" rel="stylesheet" />
+
+</head>
+
+<body>
+    <app>Loading...</app>
+
+    <div id="blazor-error-ui">
+        An unhandled error has occurred.
+        <a href="" class="reload">Reload</a>
+        <a class="dismiss">🗙</a>
+    </div>
+    <script src="_framework/blazor.webassembly.js"></script>
+    <script>
+        window.addClass = (size, islandscape) => {
+
+            document.body.classList.add(size);
+
+            if (islandscape == "true") {
+                document.body.classList.add("landscape");
+            }
+
+            return true;
+        }
+
+        window.removeClass = (size, islandscape) => {
+
+            document.body.classList.remove(size);
+
+            if (islandscape == "true") {
+                document.body.classList.remove("landscape");
+            }
+
+            return true;
+        }
+
+        window.printwindow = () => {
+            setTimeout(function () {
+                window.print();
+                window.history.back(-1);
+            }, 200);
+            return true;
+        }
+
+    </script>
+
+
+</body>
+
+</html>
