@@ -6,7 +6,7 @@ Use Paper.css On BlazorWebAssembly
 
 Demo Site (https://blazorappprintcss.firebaseapp.com/)
 
-paper.ss
+paper.css
 [https://github.com/cognitom/paper-css](https://github.com/cognitom/paper-css)
 
 
