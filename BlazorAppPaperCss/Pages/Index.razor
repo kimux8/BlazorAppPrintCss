@@ -29,8 +29,15 @@
 <button class="btn btn-primary" @onclick="@( _ => prtSetting.AutoPrint="Yes")">Yes</button>
 <button class="btn btn-primary" @onclick="@( _ => prtSetting.AutoPrint="No")">No</button>
 
-<br /><br />
+<br />
+<br />
 <button class="btn btn-primary btn-lg" @onclick="@OnPrint">Print</button>
+
+<br />
+<br />
+
+<button class="btn btn-primary btn-lg" @onclick="@OnPrintGraph">Print with Infragistics Graph</button>
+
 
 @code{
 
@@ -43,6 +50,11 @@
     void OnPrint()
     {
         navMgr.NavigateTo("/print");
+    }
+
+    void OnPrintGraph()
+    {
+        navMgr.NavigateTo("/printgraph");
     }
 
 }
